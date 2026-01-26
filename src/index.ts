@@ -25,6 +25,11 @@ export { GrowthMetricsAnalyzer } from './skills/capabilities/GrowthMetricsAnalyz
 export { ContentStrategyEngine } from './skills/capabilities/ContentStrategyEngine';
 export { GrowthIdeaGenerator } from './skills/capabilities/GrowthIdeaGenerator';
 
+// Launch Automation Module
+export * from './launch';
+export { LaunchAssistant, launchAssistant } from './launch/LaunchAssistant';
+export { MCP_SERVERS, MCPCommandGenerator, mcpCommandGenerator } from './launch/mcp/MCPLaunchIntegrations';
+
 // Register the Growth Hacker Skill
 import { skillRegistry } from './core/SkillRegistry';
 import { growthHackerSkill } from './skills/GrowthHackerSkill';

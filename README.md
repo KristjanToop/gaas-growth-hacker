@@ -26,6 +26,24 @@ The most intelligent growth hacking system for Claude Code. AI-powered growth st
 
 - **Growth Idea Generator** - Generates creative, unconventional growth ideas and experiments
 
+### Launch Automation (for Vibe-Coded Apps)
+
+- **Launch Assistant** - Complete launch automation system that handles:
+  - Email setup (domain verification, templates, sequences)
+  - Ads infrastructure (Meta Pixel, Google Ads, retargeting audiences)
+  - Analytics configuration (PostHog/Mixpanel events, funnels)
+  - Legal documents (Privacy Policy, Terms of Service)
+  - Distribution planning (Product Hunt, social media, communities)
+  - Payment setup (Stripe products, checkout)
+
+- **MCP Integrations** - Ready-to-use commands for:
+  - `resend-mcp` - Transactional email
+  - `meta-ads-mcp` - Facebook/Instagram ads
+  - `google-ads-mcp` - Google Ads
+  - `posthog-mcp` - Product analytics
+  - `stripe-mcp` - Payments
+  - `twitter-mcp` - Social posting
+
 ## Installation
 
 ```bash
@@ -144,6 +162,53 @@ console.log(result.data.quickWins);
 console.log(result.data.moonshots);
 ```
 
+### Launch Your Vibe-Coded App
+
+```typescript
+import { launchAssistant, AppInfo } from './src';
+
+const appInfo: AppInfo = {
+  name: 'MyApp',
+  tagline: 'The easiest way to do X',
+  description: 'MyApp helps you accomplish Y in half the time',
+  category: 'productivity',
+  targetAudience: 'small business owners',
+  pricing: 'freemium',
+  url: 'https://myapp.com',
+};
+
+const result = await launchAssistant.execute({
+  appInfo,
+  launchDate: '2025-02-15',
+  budget: 500,
+});
+
+// Get complete launch plan
+console.log(result.data.checklist);      // 25+ launch tasks
+console.log(result.data.emailSetup);     // Email templates & sequences
+console.log(result.data.adsSetup);       // Pixel setup, audiences, campaigns
+console.log(result.data.distributionPlan); // Product Hunt, social, communities
+console.log(result.data.mcpCommands);    // Ready-to-run MCP commands
+```
+
+### Use MCP Commands for Automation
+
+```typescript
+import { MCP_SERVERS, mcpCommandGenerator } from './src';
+
+// Get all available MCP servers
+for (const server of MCP_SERVERS) {
+  console.log(`${server.name}: ${server.description}`);
+  console.log(`  Tools: ${server.tools.map(t => t.name).join(', ')}`);
+}
+
+// Generate MCP commands for specific tasks
+const commands = mcpCommandGenerator.generateCommandsForTask(
+  { id: 'meta-pixel', /* ... */ },
+  appInfo
+);
+```
+
 ## Architecture
 
 ```
@@ -164,6 +229,12 @@ src/
 │       ├── GrowthMetricsAnalyzer.ts
 │       ├── ContentStrategyEngine.ts
 │       └── GrowthIdeaGenerator.ts
+├── launch/
+│   ├── types.ts              # Launch configuration types
+│   ├── LaunchAssistant.ts    # Main launch automation
+│   ├── index.ts              # Launch module exports
+│   └── mcp/
+│       └── MCPLaunchIntegrations.ts  # MCP server configs
 └── index.ts                  # Main exports
 ```
 
