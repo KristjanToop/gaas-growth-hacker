@@ -1,255 +1,188 @@
 # GaaSAI Growth Hacker Skill
 
-The most intelligent growth hacking system for Claude Code. AI-powered growth strategies, viral loop design, acquisition optimization, and comprehensive growth playbooks for startups and SMEs.
+> AI-powered growth strategies, viral loops, acquisition channels, funnel optimization, retention playbooks, competitor intel, personas, content/SEO, growth ideas, and launch execution. For startups and SMEs.
 
-## Features
+[![skills.sh](https://img.shields.io/badge/skills.sh-growth--hacker-000?style=flat)](https://skills.sh)
 
-### Core Capabilities
+Skills are markdown instruction sets that give AI agents specialized knowledge and workflows. This skill teaches your agent growth frameworks (AARRR, ICE, North Star, growth loops), how to run playbooks and audits, and how to **execute** launch tasks via MCPs when Resend, Meta/Google Ads, PostHog, Stripe, or Twitter are configured.
 
-- **Growth Playbook Generator** - Creates comprehensive, step-by-step growth playbooks tailored to your business stage and objectives (AAR framework: Acquisition, Activation, Retention)
+Follows the [Agent Skills](https://agentskills.io/) format.
 
-- **Viral Loop Engine** - Designs viral mechanics and referral systems to achieve organic exponential growth with K-factor optimization
+---
 
-- **Channel Analyzer** - Analyzes and prioritizes acquisition channels based on your business context, industry benchmarks, and goals
-
-- **Funnel Optimizer** - Identifies bottlenecks and provides optimization strategies for your conversion funnel
-
-- **Retention Engine** - Creates comprehensive retention and engagement strategies to reduce churn and increase LTV
-
-- **Competitor Intelligence** - Analyzes competitors to identify opportunities, threats, and differentiation strategies
-
-- **Persona Builder** - Creates detailed, actionable user personas based on your product and market
-
-- **Growth Metrics Analyzer** - Analyzes your growth metrics to identify trends, issues, and opportunities
-
-- **Content Strategy Engine** - Develops comprehensive content marketing and SEO strategies for organic growth
-
-- **Growth Idea Generator** - Generates creative, unconventional growth ideas and experiments
-
-### Launch Automation (for Vibe-Coded Apps)
-
-- **Launch Assistant** - Complete launch automation system that handles:
-  - Email setup (domain verification, templates, sequences)
-  - Ads infrastructure (Meta Pixel, Google Ads, retargeting audiences)
-  - Analytics configuration (PostHog/Mixpanel events, funnels)
-  - Legal documents (Privacy Policy, Terms of Service)
-  - Distribution planning (Product Hunt, social media, communities)
-  - Payment setup (Stripe products, checkout)
-
-- **MCP Integrations** - Ready-to-use commands for:
-  - `resend-mcp` - Transactional email
-  - `meta-ads-mcp` - Facebook/Instagram ads
-  - `google-ads-mcp` - Google Ads
-  - `posthog-mcp` - Product analytics
-  - `stripe-mcp` - Payments
-  - `twitter-mcp` - Social posting
-
-## Installation
+## Install
 
 ```bash
-npm install
-npm run build
+npx skills add <owner>/GaaSAI --skill growth-hacker
 ```
 
-## Quick Start
+Replace `<owner>` with the GitHub username or org (e.g. `kristjantoop/GaaSAI` once the repo is on GitHub).
+
+**Options:**
+
+| Flag | Purpose |
+|------|---------|
+| `-a cursor` | Install only for Cursor |
+| `-a claude-code` | Install only for Claude Code |
+| `-a codex` | Install only for Codex |
+| `-g` | Global (all projects) instead of current project |
+| `-y` | Skip prompts |
+
+**Examples:**
+
+```bash
+# Cursor + Claude Code, project scope
+npx skills add <owner>/GaaSAI --skill growth-hacker -a cursor -a claude-code
+
+# Global for Cursor
+npx skills add <owner>/GaaSAI --skill growth-hacker -a cursor -g -y
+```
+
+**From a local clone (before publishing):**
+
+```bash
+npx skills add /path/to/GaaSAI --skill growth-hacker
+```
+
+---
+
+## Available skills
+
+### growth-hacker
+
+**Use when:** growth playbook, viral loop, referral, acquisition channels, funnel optimization, retention, churn, competitor analysis, personas, content strategy, SEO for growth, growth ideas, growth audit, AARRR, North Star, launch strategy, growth experiments, launch execution, set up email/ads/analytics/payments, run campaigns, post to Twitter, or MCP for growth/launch.
+
+### What it does
+
+| Area | Capability |
+|------|------------|
+| **Playbooks** | Step-by-step playbooks for acquisition, activation, retention, revenue, referral (AARRR) |
+| **Viral loops** | Word-of-mouth, inherent virality, incentivized referral, content/viral — with K-factor and implementation |
+| **Channels** | Prioritized acquisition channels (organic, paid, content, partnerships, community, etc.) and channel mix |
+| **Funnel** | Bottleneck analysis, conversion fixes, experiment prioritization (ICE) |
+| **Retention** | Cohorts, churn, hooks, onboarding, win-back playbooks |
+| **Competitors** | Positioning, features, pricing, opportunities, threats |
+| **Personas** | User personas with goals, channels, objections |
+| **Metrics** | North Star, trends, benchmarks, anomalies, next metrics |
+| **Content & SEO** | Pillars, topics, distribution, 90-day plan |
+| **Growth ideas** | Quick wins, medium-term plays, moonshots, ICE-scored |
+| **Full audit** | End-to-end growth audit with insights and prioritized recommendations |
+| **Launch execution** | Uses MCPs when available: email (Resend), ads (Meta, Google), analytics (PostHog), payments (Stripe), social (Twitter) |
+
+### MCPs (when configured in your agent)
+
+The skill **instructs** the agent to use these MCPs for *execution*; MCP access comes from your Cursor/Claude Code config.
+
+| MCP | Use |
+|-----|-----|
+| `resend-mcp` | Domains, `send_email`, `send_batch` — welcome, activation, sequences |
+| `meta-ads-mcp` | Campaigns, ad sets, ads, custom/lookalike audiences, pixel |
+| `google-ads-mcp` | Conversion actions, campaigns, customer match |
+| `posthog-mcp` | `capture`, `identify`, actions, cohorts, `query_insights` |
+| `stripe-mcp` | Products, prices, checkout, billing portal |
+| `twitter-mcp` | `post_tweet`, `post_thread`, `upload_media` |
+
+If an MCP is not available, the agent still returns **plans and ready-to-run snippets**.
+
+---
+
+## Usage
+
+Once installed, use growth or launch prompts in Cursor, Claude Code, or Codex. The agent applies the skill when the task matches.
+
+**Examples:**
+
+```
+"Give me a growth playbook for acquisition for a B2B SaaS"
+"Analyze acquisition channels for our seed-stage product"
+"Design a viral loop for our collaborative app"
+"Run a quick growth audit for [product]"
+"Set up a welcome email for new signups"     → uses resend-mcp if configured
+"Create a Meta launch campaign"              → uses meta-ads-mcp if configured
+"Create Stripe products and checkout"        → uses stripe-mcp if configured
+"Post our launch on Twitter"                 → uses twitter-mcp if configured
+```
+
+---
+
+## Skill structure
+
+```
+skills/
+└── growth-hacker/
+    └── SKILL.md    # Instructions, frameworks, MCP guidance, output formats
+```
+
+---
+
+## Also: programmatic use
+
+For scripts, backends, or pipelines, the same capabilities are available as a **TypeScript package**:
+
+```bash
+npm install gaasai-growth-hacker-skill
+```
 
 ```typescript
-import growthHackerSkill, { BusinessContext } from './src';
+import growthHackerSkill, { BusinessContext } from 'gaasai-growth-hacker-skill';
 
-const context: BusinessContext = {
-  company: {
-    name: 'My Startup',
-    stage: 'seed',
-    industry: 'SaaS',
-    businessModel: 'saas',
-    teamSize: 5,
-  },
-  product: {
-    name: 'My Product',
-    type: 'b2b',
-    category: 'productivity',
-    pricing: { type: 'freemium', lowestTier: 0, currency: 'USD' },
-    uniqueValueProposition: 'We help teams work faster',
-    coreProblemSolved: 'Team collaboration is broken',
-    keyFeatures: ['Real-time collaboration', 'AI assistance'],
-  },
-  market: {
-    maturity: 'growing',
-    keyTrends: ['Remote work', 'AI adoption'],
-    barriers: [],
-  },
-  currentMetrics: {
-    monthlyActiveUsers: 1000,
-    activationRate: 0.3,
-    day7Retention: 0.2,
-    monthlyChurnRate: 0.05,
-  },
-  personas: [],
-  competitors: [],
-  objectives: [],
-};
-
-// Execute full growth audit
 const result = await growthHackerSkill.execute({
-  sessionId: 'session-123',
-  businessContext: context,
+  sessionId: 'x',
+  businessContext: { company: {...}, product: {...}, currentMetrics: {...}, ... }
 });
-
-console.log('Insights:', result.insights);
-console.log('Next Actions:', result.nextActions);
+// result.insights, result.nextActions, result.data
 ```
 
-## Individual Capability Usage
+**From source:**
 
-### Generate a Growth Playbook
-
-```typescript
-import { PlaybookGenerator } from './src';
-
-const generator = new PlaybookGenerator();
-const result = await generator.execute({
-  targetStage: 'acquisition',
-  businessModel: 'saas',
-  budget: 'seed',
-});
-
-console.log(result.data); // Comprehensive playbook with steps and tactics
+```bash
+git clone https://github.com/<owner>/GaaSAI.git && cd GaaSAI
+npm install && npm run build
 ```
 
-### Design Viral Loops
+Then `import` from `./src` or `./dist`. The repo also includes a **Launch Assistant** (checklist, email/ads/analytics/Stripe setup, MCP command generator) and **`MCP_SERVERS`** / **`mcpCommandGenerator`** for automation. See the full [API and architecture](#architecture) below.
 
-```typescript
-import { ViralLoopEngine } from './src';
-
-const engine = new ViralLoopEngine();
-const result = await engine.execute({
-  productType: 'b2b',
-  preferredLoopType: 'collaboration',
-});
-
-console.log(result.data.recommendedLoops);
-console.log(result.data.implementationGuide);
-```
-
-### Analyze Acquisition Channels
-
-```typescript
-import { ChannelAnalyzer } from './src';
-
-const analyzer = new ChannelAnalyzer();
-const result = await analyzer.execute({
-  industry: 'SaaS',
-  productType: 'b2b',
-  budget: 5000,
-});
-
-console.log(result.data.topRecommendations);
-console.log(result.data.channelMix);
-```
-
-### Generate Growth Ideas
-
-```typescript
-import { GrowthIdeaGenerator } from './src';
-
-const generator = new GrowthIdeaGenerator();
-const result = await generator.execute({
-  businessContext: { company: { stage: 'seed' }, product: { type: 'b2b' } },
-  riskTolerance: 'moderate',
-});
-
-console.log(result.data.quickWins);
-console.log(result.data.moonshots);
-```
-
-### Launch Your Vibe-Coded App
-
-```typescript
-import { launchAssistant, AppInfo } from './src';
-
-const appInfo: AppInfo = {
-  name: 'MyApp',
-  tagline: 'The easiest way to do X',
-  description: 'MyApp helps you accomplish Y in half the time',
-  category: 'productivity',
-  targetAudience: 'small business owners',
-  pricing: 'freemium',
-  url: 'https://myapp.com',
-};
-
-const result = await launchAssistant.execute({
-  appInfo,
-  launchDate: '2025-02-15',
-  budget: 500,
-});
-
-// Get complete launch plan
-console.log(result.data.checklist);      // 25+ launch tasks
-console.log(result.data.emailSetup);     // Email templates & sequences
-console.log(result.data.adsSetup);       // Pixel setup, audiences, campaigns
-console.log(result.data.distributionPlan); // Product Hunt, social, communities
-console.log(result.data.mcpCommands);    // Ready-to-run MCP commands
-```
-
-### Use MCP Commands for Automation
-
-```typescript
-import { MCP_SERVERS, mcpCommandGenerator } from './src';
-
-// Get all available MCP servers
-for (const server of MCP_SERVERS) {
-  console.log(`${server.name}: ${server.description}`);
-  console.log(`  Tools: ${server.tools.map(t => t.name).join(', ')}`);
-}
-
-// Generate MCP commands for specific tasks
-const commands = mcpCommandGenerator.generateCommandsForTask(
-  { id: 'meta-pixel', /* ... */ },
-  appInfo
-);
-```
+---
 
 ## Architecture
 
 ```
-src/
-├── core/
-│   ├── types.ts              # All TypeScript types and interfaces
-│   └── SkillRegistry.ts      # Central skill management
+GaaSAI/
 ├── skills/
-│   ├── GrowthHackerSkill.ts  # Main skill orchestrator
-│   └── capabilities/
-│       ├── PlaybookGenerator.ts
-│       ├── ViralLoopEngine.ts
-│       ├── ChannelAnalyzer.ts
-│       ├── FunnelOptimizer.ts
-│       ├── RetentionEngine.ts
-│       ├── CompetitorIntelligence.ts
-│       ├── PersonaBuilder.ts
-│       ├── GrowthMetricsAnalyzer.ts
-│       ├── ContentStrategyEngine.ts
-│       └── GrowthIdeaGenerator.ts
-├── launch/
-│   ├── types.ts              # Launch configuration types
-│   ├── LaunchAssistant.ts    # Main launch automation
-│   ├── index.ts              # Launch module exports
-│   └── mcp/
-│       └── MCPLaunchIntegrations.ts  # MCP server configs
-└── index.ts                  # Main exports
+│   └── growth-hacker/
+│       └── SKILL.md           # Agent skill for Skills.sh / Cursor / Claude Code
+├── src/
+│   ├── core/                  # Types, SkillRegistry
+│   ├── skills/                # GrowthHackerSkill, capabilities (Playbook, Viral, Channel, …)
+│   ├── launch/                # LaunchAssistant, MCP configs, mcpCommandGenerator
+│   └── index.ts
+├── LAUNCH-SKILLS.md           # Test locally, publish on Skills.sh
+└── README.md
 ```
 
-## Growth Frameworks Supported
+**Programmatic entry points:** `growthHackerSkill`, `launchAssistant`, `MCP_SERVERS`, `mcpCommandGenerator`, and capability classes in `src/skills/capabilities/` (e.g. `PlaybookGenerator`, `ChannelAnalyzer`). See `src/index.ts` and type definitions for the full API.
 
-- **AARRR (Pirate Metrics)** - Acquisition, Activation, Retention, Revenue, Referral
-- **Growth Loops** - Viral loops, network effects, content loops
-- **North Star Metric** - Focus on single most important metric
-- **ICE Scoring** - Impact, Confidence, Ease prioritization
-- **Hook Model** - Trigger, Action, Variable Reward, Investment
+**Frameworks in the skill:** AARRR, ICE, North Star, growth loops, Hook model.
+
+---
+
+## Publishing & testing
+
+- **Test locally:** `npx skills add . --skill growth-hacker -a cursor -y` from the GaaSAI directory.
+- **Publish on [Skills.sh](https://skills.sh):** Push the repo to GitHub; install with `npx skills add <owner>/GaaSAI --skill growth-hacker`. Skills.sh ranks by installs.
+
+See **[LAUNCH-SKILLS.md](LAUNCH-SKILLS.md)** for step-by-step testing and publishing.
+
+Contributions welcome — open an issue or PR.
+
+---
 
 ## License
 
 MIT
 
+---
+
 ## About GaaSAI
 
-GaaSAI (Growth as a Service AI) helps create tailored, efficient, and collaborative growth and marketing strategies assisted by AI and expert community knowledge.
+GaaSAI (Growth as a Service AI) helps build tailored, efficient growth and marketing strategies with AI and structured playbooks.
