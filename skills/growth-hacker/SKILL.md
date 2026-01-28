@@ -1,6 +1,6 @@
 ---
 name: growth-hacker
-description: Provides AI-powered growth strategies, viral loop design, acquisition channel analysis, funnel optimization, retention playbooks, competitor intelligence, persona building, growth audits, and launch execution via MCPs. Use when the user wants growth playbooks, viral/referral mechanics, channel prioritization, funnel optimization, retention strategy, competitor analysis, user personas, content/SEO strategy, growth ideas, a full growth audit, or to execute launch tasks (email, ads, analytics, payments, social) with Resend, Meta/Google Ads, PostHog, Stripe, or Twitter MCPs.
+description: Ultimate growth skill: playbooks, viral loops, acquisition, funnel, retention, competitor intel, personas, content/SEO, growth ideas, product-led growth (PLG), growth audits, and launch execution via MCPs. Use when the user wants growth playbooks, viral/referral, channels, funnel optimization, retention, PLG, product-led, time-to-value, PQL, signup/onboarding/paywall optimization, free-to-paid conversion, expansion revenue, competitor analysis, personas, content/SEO, growth ideas, growth audit, or launch execution (email, ads, analytics, payments, social) with Resend, Meta/Google Ads, PostHog, Stripe, or Twitter MCPs.
 ---
 
 # Growth Hacker
@@ -11,7 +11,7 @@ Expert in growth hacking: playbooks, viral loops, acquisition, funnel optimizati
 
 ## When to Use
 
-Apply this skill when the user mentions or asks for: **growth playbook**, **viral loop**, **referral**, **acquisition channels**, **funnel optimization**, **retention**, **churn**, **competitor analysis**, **personas**, **content strategy**, **SEO for growth**, **growth ideas**, **growth audit**, **AARRR**, **North Star metric**, **launch strategy**, **growth experiments**, **launch execution**, **set up email/ads/analytics/payments**, **run campaigns**, **post to Twitter/social**, or **MCP** for growth/launch tasks.
+Apply this skill when the user mentions or asks for: **growth playbook**, **viral loop**, **referral**, **acquisition channels**, **funnel optimization**, **retention**, **churn**, **competitor analysis**, **personas**, **content strategy**, **SEO for growth**, **growth ideas**, **growth audit**, **AARRR**, **North Star metric**, **launch strategy**, **growth experiments**, **launch execution**, **product-led growth**, **PLG**, **time-to-value**, **TTV**, **PQL**, **product-qualified lead**, **signup flow**, **onboarding**, **activation**, **aha moment**, **paywall**, **free-to-paid**, **freemium conversion**, **expansion revenue**, **self-serve**, **set up email/ads/analytics/payments**, **run campaigns**, **post to Twitter/social**, or **MCP** for growth/launch tasks.
 
 ---
 
@@ -42,7 +42,7 @@ Otherwise, gather (or infer):
 
 **When the user wants to execute** (not just plan)—set up email, run ads, configure analytics, create Stripe products, post to social—**use any available MCP tools** from the environment. MCP access is provided by Cursor, Claude Code, or your agent’s MCP config; this skill does not grant MCP access, it directs you to use it when relevant.
 
-### GaaSAI-relevant MCPs
+### Relevant MCPs
 
 | MCP | Purpose | Example tasks |
 |-----|---------|---------------|
@@ -61,7 +61,7 @@ Otherwise, gather (or infer):
 - **Launch setup (payments)**: stripe-mcp → `create_product`, `create_price`, `create_checkout_session` for paywall/upgrade.
 - **Distribution / social**: twitter-mcp → `post_tweet` or `post_thread` for launch and follow-up.
 
-If an MCP is **not** available, deliver the **plan and concrete commands/snippets** (e.g. from GaaSAI’s `MCPLaunchIntegrations` or Launch Assistant patterns) so the user can run them elsewhere or after adding the MCP.
+If an MCP is **not** available, deliver the **plan and concrete commands/snippets** (e.g. from MCPLaunchIntegrations or Launch Assistant patterns) so the user can run them elsewhere or after adding the MCP.
 
 ---
 
@@ -264,13 +264,77 @@ If an MCP is **not** available, deliver the **plan and concrete commands/snippet
 
 ---
 
-## 11. Full Growth Audit
+## 11. Product-Led Growth (PLG)
+
+**Inputs:** product type (b2b, b2c, b2b2c), business model (freemium, free trial, product-led sales), current signup/activation/free-to-paid rates, North Star (if any).
+
+Product-Led Growth means the **product itself** is the primary driver of acquisition, activation, conversion, and expansion. Self-serve and low-touch beat high-touch sales for many SaaS and tools.
+
+### PLG fundamentals
+
+- **PQL (Product-Qualified Lead)**: A user who has experienced enough value in-product to be a strong sales or upgrade candidate. Define the in-app behavior that signals intent.
+- **Time-to-Value (TTV)**: Minutes or actions from signup to “aha moment.” Shorter TTV = higher activation and conversion.
+- **Self-serve funnel**: Try → Activate → Convert → Expand. Each step should be measurable and improvable in-product.
+
+### Signup flow (first touch)
+
+- **Minimize required fields**: Email + password (or social) first. Defer name, company, role to onboarding or progressive profiling.
+- **Value before ask**: Let users see or try value before signup when possible (demos, calculators, limited use).
+- **Reduce perceived effort**: Progress indicators, smart defaults, inline validation, clear “what happens next.”
+- **Social / SSO**: Prominent Google, Apple, Microsoft, or GitHub; often converts better than email-only.
+
+### Onboarding & activation
+
+- **Aha moment**: The action that correlates most with retention. Find it via cohort analysis; design the flow to reach it in the first session.
+- **One goal per session**: Get one clear win in the first use. Save advanced features for later.
+- **Do, don’t show**: Interactive > tutorial. Empty states that invite “add your first X” beat long tours.
+- **Onboarding checklist**: 3–7 items, ordered by impact, with progress and a dismiss option. Don’t trap.
+- **Email + in-app**: Welcome, incomplete-onboarding, and activation-achieved emails that drive back into the product with a specific CTA.
+
+### Free-to-paid conversion & paywalls
+
+- **Value before ask**: Show the upgrade only after the user has felt value (post–aha moment or when hitting a real limit).
+- **Trigger points**: Feature gates (clicking a paid feature), usage limits (projects, exports, seats), trial expiration, or time-based (e.g. after 7 days of use).
+- **Paywall copy**: Headline on benefit (“Unlock X to get Y”), short value demo, clear plan comparison, specific CTA, and a respectful “Not now” or “Continue with Free.”
+- **Timing**: Not during onboarding; limit frequency per session; cool-down after dismiss (days, not hours).
+
+### Expansion revenue
+
+- **Usage-based**: More usage → higher plan or overage. Align pricing with value.
+- **Seat expansion**: Encourage team invites and team plans; make “add teammate” obvious at the right moment.
+- **Land-and-expand**: Single user → team → org. Track expansion MRR and time-to-expand.
+
+### Free tools (try-before-buy / lead gen)
+
+- **When it fits PLG**: Calculators, generators, analyzers, or limited-use versions that mirror the core product. Tool = lead and first value.
+- **Gating**: Fully gated, partial (preview + email for full), or ungated for reach. Balance capture vs. usage.
+- **Path to product**: Clear next step from tool to full product or trial.
+
+### PLG audit output
+
+For a **PLG audit**, run through:
+
+1. **Signup**: Friction, fields, social auth, post-submit flow.
+2. **TTV & activation**: Aha moment defined? Steps to reach it? Activation rate and time-to-activation.
+3. **Onboarding**: First session flow, checklist, empty states, email triggers.
+4. **Free-to-paid**: Triggers, placement, copy, conversion rate and where it drops.
+5. **Expansion**: Usage-based or seat-based plays; expansion MRR; time-to-expand.
+
+**Output:**
+- PLG funnel (Signup → Activate → Convert → Expand) with current rates and benchmarks.
+- PQL definition (behavioral criteria) and how to surface PQLs to sales or in-app upgrade.
+- Findings table: area, issue, impact, recommendation, priority.
+- Top 3–5 experiments (e.g. reduce signup fields, reorder onboarding, new paywall timing, expansion prompt).
+
+---
+
+## 12. Full Growth Audit
 
 **Inputs:** full business context (company, product, market, metrics, personas, competitors, objectives).
 
 **Process:**
-1. Run through: playbooks (prioritized stages), viral potential, channels, funnel, retention, competitors, personas, metrics, content.
-2. Synthesize **insights** (stage-specific, metrics-based, channel and viral).
+1. Run through: playbooks (prioritized stages), viral potential, channels, funnel, retention, **PLG** (signup, TTV, activation, free-to-paid, expansion), competitors, personas, metrics, content.
+2. Synthesize **insights** (stage-specific, metrics-based, channel, viral, PLG).
 3. Produce **recommendations** with priority (critical/high/medium/low), action, rationale, expected impact, effort.
 
 **Output:**
@@ -280,7 +344,7 @@ If an MCP is **not** available, deliver the **plan and concrete commands/snippet
 
 ---
 
-## 12. Launch Execution (with MCPs)
+## 13. Launch Execution (with MCPs)
 
 **Inputs:** app/product name, tagline, URL, category, target audience, pricing model, launch date, budget. Optionally: `.claude/product-marketing-context.md` or business-context.
 
@@ -289,7 +353,7 @@ If an MCP is **not** available, deliver the **plan and concrete commands/snippet
 1. **Gather context** — app name, URL, pricing, audience. Reuse product-marketing-context if present.
 2. **Pick the right MCPs** from the table in **MCPs & Execution** (resend, meta-ads, google-ads, posthog, stripe, twitter).
 3. **Call the MCP tools** to perform the task (e.g. `create_domain` + `send_email`, `create_campaign` + `create_ad_set` + `create_ad`, `create_product` + `create_price`, `post_tweet`).
-4. **If an MCP is missing** — output a ready-to-run snippet or the GaaSAI-style command block so the user can run it after configuring that MCP.
+4. **If an MCP is missing** — output a ready-to-run snippet or command block so the user can run it after configuring that MCP.
 
 **Typical launch flow:** email domain + templates → pixel + audiences → first campaign (paused until launch) → PostHog events/actions → Stripe products/prices → launch-day Twitter post. Run only the steps the user asked for, unless they request a “full launch setup.”
 
@@ -306,9 +370,9 @@ If an MCP is **not** available, deliver the **plan and concrete commands/snippet
 
 ---
 
-## Programmatic Use (GaaSAI)
+## Programmatic Use
 
-For scripted or agent use, the GaaSAI package provides the same capabilities via TypeScript:
+For scripted or agent use, the `gaasai-growth-hacker-skill` package provides the same capabilities via TypeScript:
 
 ```bash
 npm install gaasai-growth-hacker-skill
@@ -321,4 +385,4 @@ const result = await growthHackerSkill.execute({ sessionId: 'x', businessContext
 // result.insights, result.nextActions, result.data
 ```
 
-Use this skill for **interactive** guidance in chat; use the package when you need **structured, repeatable** runs (e.g. in pipelines or dashboards). For **launch execution**, the agent uses MCPs (resend, meta-ads, google-ads, posthog, stripe, twitter) when they are configured in Cursor/Claude Code; the GaaSAI package’s `MCP_SERVERS` and `mcpCommandGenerator` document the same tools and patterns for automation.
+Use this skill for **interactive** guidance in chat; use the package when you need **structured, repeatable** runs (e.g. in pipelines or dashboards). For **launch execution**, the agent uses MCPs (resend, meta-ads, google-ads, posthog, stripe, twitter) when configured in Cursor/Claude Code; the package’s `MCP_SERVERS` and `mcpCommandGenerator` document the same tools and patterns for automation.

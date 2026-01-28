@@ -1,6 +1,6 @@
 # Growth Hacker Skill
 
-> AI-powered growth strategies, viral loops, acquisition channels, funnel optimization, retention playbooks, competitor intel, personas, content/SEO, growth ideas, and launch execution. For startups and SMEs.
+> AI-powered growth strategies, viral loops, acquisition channels, funnel optimization, retention playbooks, **product-led growth (PLG)**, competitor intel, personas, content/SEO, growth ideas, and launch execution. For startups and SMEs.
 
 [![skills.sh](https://img.shields.io/badge/skills.sh-growth--hacker-000?style=flat)](https://skills.sh)
 
@@ -42,7 +42,7 @@ npx skills add /path/to/gaas-growth-hacker --skill growth-hacker
 
 ## Skills
 
-Use when: **growth playbook**, **viral loop**, **referral**, **acquisition channels**, **funnel optimization**, **retention**, **churn**, **competitor analysis**, **personas**, **content strategy**, **SEO for growth**, **growth ideas**, **growth audit**, **AARRR**, **North Star**, **launch strategy**, **growth experiments**, **launch execution**, or **MCP** for email/ads/analytics/payments/social.
+Use when: **growth playbook**, **viral loop**, **referral**, **acquisition channels**, **funnel optimization**, **retention**, **churn**, **product-led growth**, **PLG**, **time-to-value**, **PQL**, **signup/onboarding/paywall**, **free-to-paid**, **expansion revenue**, **competitor analysis**, **personas**, **content strategy**, **SEO for growth**, **growth ideas**, **growth audit**, **AARRR**, **North Star**, **launch strategy**, **growth experiments**, **launch execution**, or **MCP** for email/ads/analytics/payments/social.
 
 | Skill | What it does |
 |-------|--------------|
@@ -56,6 +56,7 @@ Use when: **growth playbook**, **viral loop**, **referral**, **acquisition chann
 | **Metrics** | North Star, trends, benchmarks, anomalies, next metrics |
 | **Content & SEO** | Pillars, topics, distribution, 90-day plan |
 | **Growth ideas** | Quick wins, medium-term plays, moonshots, ICE-scored |
+| **PLG** | Signup, onboarding, activation, TTV, PQL, paywall, free-to-paid, expansion revenue; PLG audit |
 | **Full audit** | End-to-end growth audit with insights and prioritized recommendations |
 | **Launch execution** | Email (Resend), ads (Meta, Google), analytics (PostHog), payments (Stripe), social (Twitter) via MCPs when configured |
 
@@ -84,6 +85,8 @@ Use growth or launch prompts in Cursor, Claude Code, or Codex. The agent applies
 "Give me a growth playbook for acquisition for a B2B SaaS"
 "Analyze acquisition channels for our seed-stage product"
 "Design a viral loop for our collaborative app"
+"Run a PLG audit: signup, activation, free-to-paid"     → uses PLG section
+"Optimize our onboarding for time-to-value"             → uses PLG section
 "Run a quick growth audit for [product]"
 "Set up a welcome email for new signups"     → uses resend-mcp if configured
 "Create a Meta launch campaign"              → uses meta-ads-mcp if configured
@@ -147,7 +150,7 @@ gaas-growth-hacker/
 └── README.md
 ```
 
-**Frameworks:** AARRR, ICE, North Star, growth loops, Hook model.
+**Frameworks:** AARRR, ICE, North Star, growth loops, Hook model, PLG (PQL, TTV, self-serve funnel, expansion).
 
 ---
 
