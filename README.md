@@ -1,4 +1,4 @@
-# GaaSAI Growth Hacker Skill
+# GaaS Growth Hacker Skill
 
 > AI-powered growth strategies, viral loops, acquisition channels, funnel optimization, retention playbooks, competitor intel, personas, content/SEO, growth ideas, and launch execution. For startups and SMEs.
 
